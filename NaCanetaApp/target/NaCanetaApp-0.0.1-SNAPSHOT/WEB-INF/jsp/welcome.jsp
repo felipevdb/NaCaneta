@@ -22,4 +22,5 @@ body {
 		for all Spring MVC, Web Development examples.<br>
 	</div>
 </body>
+
 </html>
