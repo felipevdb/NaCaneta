@@ -1,4 +1,4 @@
-package com.nacaneta.model;
+package nacaneta.model;
 
 import java.util.ArrayList;
 
@@ -15,8 +15,8 @@ public class Escola {
 		this.listasmateriais = new ArrayList<ListaMaterial>();
 	}
 
-	public boolean adicionarListaMaterial(String serie, int ano) {
-		this.listasmateriais.add(new ListaMaterial(serie, ano));
+	public boolean adicionarListaMaterial(int id, String serie, int ano) {
+		this.listasmateriais.add(new ListaMaterial(id, serie, ano));
 		return true;
 	}
 

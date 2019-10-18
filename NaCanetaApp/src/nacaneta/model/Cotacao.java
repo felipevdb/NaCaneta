@@ -1,6 +1,8 @@
-package com.nacaneta.model;
+package nacaneta.model;
 
 public class Cotacao {
+	
+	private int id;
 	public float valor;
 	public ListaMaterial lista_material;
 	public Loja loja;

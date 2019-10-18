@@ -1,22 +1,24 @@
-package com.nacaneta.model;
+package nacaneta.model;
 
 import java.util.ArrayList;
 
 public class Loja {
+	public int id;
 	public String nome;
 	public String endereco;
 	public String telefone;
 	public ArrayList<Produto> produtos;
 
-	public Loja(String nome, String endereco, String telefone) {
+	public Loja(int id, String nome, String endereco, String telefone) {
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
 		this.produtos = new ArrayList<Produto>();
+		this.id = id;
 	}
 
-	public boolean adicionarProduto(String descricao, String marca, float preco) {
-		this.produtos.add(new Produto(descricao, marca, preco));
+	public boolean adicionarProduto(int id, String descricao, String marca, float preco) {
+		this.produtos.add(new Produto(id, descricao, marca, preco));
 		return true;
 	}
 
