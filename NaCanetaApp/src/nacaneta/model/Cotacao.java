@@ -1,11 +1,13 @@
 package nacaneta.model;
 
+
 public class Cotacao {
 	
 	private int id;
 	public float valor;
 	public ListaMaterial lista_material;
 	public Loja loja;
+
 
 	public Cotacao(ListaMaterial lista_material, Loja loja) {
 		this.lista_material = lista_material;
