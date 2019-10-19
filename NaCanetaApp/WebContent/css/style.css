@@ -1,136 +1,146 @@
-@import url('https://fonts.googleapis.com/css?family=Assistant|Pacifico|Lato&display=swap');
+@import
+	url('https://fonts.googleapis.com/css?family=Assistant|Pacifico|Lato&display=swap')
+	;
 
 html, body {
-    background-color:  #FBFBFB;
-    font-family: 'Assistant', sans-serif;
-    font-size: 1em;
-    color: black;
-    margin: 0;
+	background-color: #FBFBFB;
+	font-family: 'Assistant', sans-serif;
+	font-size: 1em;
+	color: black;
+	margin: 0;
+}
+
+label {
+	display: block;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 .cabecalhoPrincipal {
-    width: 100%;
-    background-color:  #96C6D9;
-    font-size: 1.1em;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    margin: 0;
+	width: 100%;
+	background-color: #384E80;
+	font-size: 1.1em;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	margin: 0;
 }
 
 .cabecalhoPrincipal-logo {
-    margin: 0;
-    margin-left: 1pc;
-    margin-right: 1pc;
+	margin: 0;
+	margin-left: 1pc;
+	margin-right: 1pc;
 }
 
-.cabecalhoPrincipal-logo > a {
-    font-family: 'Pacifico', cursive;
-    color: black;
-    margin: 0;
+.cabecalhoPrincipal-logo>a {
+	font-family: 'Pacifico', cursive;
+	color: white;
+	margin: 0;
 }
 
-.cabecalhoPrincipal-nav > a{
-    color: white;
+.cabecalhoPrincipal-nav>a {
+	color: white;
 }
 
 .conteudoPrincipal {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 0;
-    margin: 0px;
-    padding: 0px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 0;
+	margin: 0px;
+	padding: 0px;
 }
 
 .mainBar {
-    background-image: url("paper.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    margin: 100pt;
-    border-radius: 7pt;
-    flex: 3 1 60%;
-    order: 2;
-    min-height: 30pc;
+	background-color: #D1E3FF;
+	margin: 100pt;
+	border-radius: 20pt;
+	border-top-left-radius: 0pt;
+	border-bottom-right-radius: 0pt; flex : 3 1 60%;
+	order: 2;
+	min-height: 30pc;
+	flex: 3 1 60%;
 }
 
 .tituloPrincipal {
-    color:  black;
-    margin: 1pc;
-    font-family: 'Lato', sans-serif;
-    font-size: 1.5em;
+	color: black;
+	margin: 1pc;
+	font-family: 'Lato', sans-serif;
+	font-size: 1.5em;
 }
 
 .myForm {
-    display: flex;
-    border-radius: 3px;
-    padding: 1.8em;
+	display: flex;
+	border-radius: 3px;
+	padding: 1.8em;
 }
 
 .contact {
-    flex: 1; 
-    order: 1;
-    margin-right: 2em; 
+	flex: 1;
+	order: 1;
+	margin-right: 2em;
 }
 
 .contact label {
-    margin-top: 1pc;
+	margin-top: 1pc;
 }
 
 .contact input {
-    width: 30%;
+	width: 30%;
 }
-.contact input,
-.contact button {
-    padding: 1em;
-    margin-bottom: 1em;
+
+.contact input, .contact button {
+	padding: 1em;
+	margin-bottom: 1em;
+}
+
+.formButtons {
+	display: block;
 }
 
 .contact button {
-    background-color: #aed6f1;
-    color: white;
-    border-style: none;
-    border-radius: 2pc;
-    font-size: 0.8pc;
-    cursor: pointer;
+	background-color: #aed6f1;
+	color: white;
+	border-style: none;
+	border-radius: 2pc;
+	font-size: 0.8pc;
+	cursor: pointer;
 }
 
 .sideBar {
-    background-color:  #B0D9C1;
-    flex: 1 6 60%;
-    order: 3;
-    min-height: 100%;
+	background-color: #7286B3;
+	flex: 1 6 60%;
+	order: 3;
+	min-height: 100%;
 }
 
 .tituloSide {
-    color:  white;
-    margin: 1pc;
-    font-family: 'Lato', sans-serif;
-    font-size: 1.5em;
+	color: white;
+	margin: 1pc;
+	font-family: 'Lato', sans-serif;
+	font-size: 1.5em;
 }
 
 .listaSide {
-    margin: 1pc;
-    padding: 0;
+	margin: 1pc;
+	padding: 0;
 }
 
-.listaSide > li {
-    background-color: #d5f5e3;
-    margin: 0;
-    padding: 1pc;
-    border-radius: 5pc;
-    margin-top: 1pc;
-    margin-left: 0;
-    list-style: none;
-    cursor: pointer;
+.listaSide>li {
+	background-color: #D6E2FF;
+	margin: 0;
+	padding: 1pc;
+	border-radius: 5pc;
+	margin-top: 1pc;
+	margin-left: 0;
+	list-style: none;
+	cursor: pointer;
 }

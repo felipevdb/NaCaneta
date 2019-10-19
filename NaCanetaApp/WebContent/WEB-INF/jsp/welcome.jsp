@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -40,9 +40,10 @@
 							<option value="fiat">UNICAMP</option>
 						</select> <label for="email"><b>Preço Total</b></label> <input type="email"
 							id="email">
-
-						<button type="submit">limpar</button>
-						<button type="submit">salvar</button>
+						<div class="formButtons">
+							<button class="formBtn" type="submit">limpar</button>
+							<button class="formBtn" type="submit">salvar</button>
+						</div>
 					</div>
 				</form>
 			</div>
