@@ -9,6 +9,13 @@ public class Loja {
 	public String telefone;
 	public ArrayList<Produto> produtos;
 
+	public Loja(String nome, String endereco, String telefone) {
+		this.nome = nome;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.produtos = new ArrayList<Produto>();
+	}
+	
 	public Loja(int id, String nome, String endereco, String telefone) {
 		this.nome = nome;
 		this.endereco = endereco;
@@ -18,7 +25,7 @@ public class Loja {
 	}
 
 	public boolean adicionarProduto(int id, String descricao, String marca, float preco) {
-		this.produtos.add(new Produto(id, descricao, marca, preco));
+		this.produtos.add(new Produto(descricao, marca, preco));
 		return true;
 	}
 

@@ -10,6 +10,12 @@ public class ListaMaterial {
 	public ArrayList<Item> itens;
 	
 
+	public ListaMaterial(String serie, int ano) {
+		this.serie = serie;
+		this.ano = ano;
+		this.itens = new ArrayList<Item>();
+	}
+	
 	public ListaMaterial(int id, String serie, int ano) {
 		this.serie = serie;
 		this.ano = ano;

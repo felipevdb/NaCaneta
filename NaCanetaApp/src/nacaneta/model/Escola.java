@@ -3,6 +3,8 @@ package nacaneta.model;
 import java.util.ArrayList;
 
 public class Escola {
+	
+	public int id;
 	public String nome;
 	public String endereco;
 	public String telefone;
@@ -14,9 +16,17 @@ public class Escola {
 		this.telefone = telefone;
 		this.listasmateriais = new ArrayList<ListaMaterial>();
 	}
+	
+	public Escola(int id, String nome, String endereco, String telefone) {
+		this.nome = nome;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.listasmateriais = new ArrayList<ListaMaterial>();
+		this.id = id;
+	}
 
 	public boolean adicionarListaMaterial(int id, String serie, int ano) {
-		this.listasmateriais.add(new ListaMaterial(id, serie, ano));
+		this.listasmateriais.add(new ListaMaterial(serie, ano));
 		return true;
 	}
 
