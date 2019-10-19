@@ -95,6 +95,8 @@ a {
 
 .contact input {
 	width: 30%;
+	border-radius: 10px;
+	border-style: none;
 }
 
 .contact input, .contact button {
@@ -107,7 +109,7 @@ a {
 }
 
 .contact button {
-	background-color: #aed6f1;
+	background-color: #7286B3;
 	color: white;
 	border-style: none;
 	border-radius: 2pc;

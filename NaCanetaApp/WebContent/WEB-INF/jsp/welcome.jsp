@@ -28,21 +28,17 @@
 				<h1 class="tituloPrincipal">Registrar Cotação</h1>
 				<form class="myForm">
 					<div class="contact">
-						<label for="name"><b>Lista de Material</b></label> <select
-							name="cars" id="name">
-							<option value="volvo">PUC</option>
-							<option value="saab">USP</option>
-							<option value="fiat">UNICAMP</option>
-						</select> <label for="townborn"><b>Papelaria/Loja</b></label> <select
-							name="cars" id="townborn">
-							<option value="volvo">PUC</option>
-							<option value="saab">USP</option>
-							<option value="fiat">UNICAMP</option>
-						</select> <label for="email"><b>Preço Total</b></label> <input type="email"
-							id="email">
+						<label for="listamaterial"><b>Lista de Material</b></label> <select
+							name="listamaterial" id="listamaterial">
+							<option value="Lista PUC">Lista PUC</option>
+						</select> <label for="loja"><b>Papelaria/Loja</b></label> <select
+							name="loja" id="loja">
+							<option value="Papelaria PUC">Papelaria PUC</option>
+						</select> <label for="valor"><b>Preço Total</b></label> <input type="text"
+							id="valor">
 						<div class="formButtons">
-							<button class="formBtn" type="submit">limpar</button>
-							<button class="formBtn" type="submit">salvar</button>
+							<button type="submit">limpar</button>
+							<button type="submit">salvar</button>
 						</div>
 					</div>
 				</form>
