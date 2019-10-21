@@ -8,6 +8,6 @@ public interface DaoGenerico<T> {
 	public List<T> getAll();
 	
 	public void insert(String[] parameter);
-
+	
 
 }

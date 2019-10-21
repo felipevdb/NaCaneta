@@ -1,15 +1,13 @@
 package nacaneta.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
 import nacaneta.model.ListaMaterial;
+import nacaneta.rowmapper.ListaMaterialRowMapper;
 
 public class ListaMaterialDao implements DaoGenerico<ListaMaterial> {
 	
@@ -21,17 +19,7 @@ public class ListaMaterialDao implements DaoGenerico<ListaMaterial> {
 
 	@Override
 	public List<ListaMaterial> getAll() {
-		List<ListaMaterial> list = jdbcTemp.query("select Id, Serie, Ano from ListaMaterial", new RowMapper<ListaMaterial>() {
-
-			@Override
-			public ListaMaterial mapRow(ResultSet rs, int rowNum) throws SQLException {
-				ListaMaterial listaMaterial = new ListaMaterial(rs.getInt("id"), rs.getString("serie"), rs.getInt("ano"));
-
-				return listaMaterial;
-			}
-
-		});
-		
+		List<ListaMaterial> list = jdbcTemp.query("select Id, Serie, Ano from ListaMaterial", new ListaMaterialRowMapper());
 		
 		return list;
 	}
@@ -42,6 +30,5 @@ public class ListaMaterialDao implements DaoGenerico<ListaMaterial> {
 		//TO DO
 		
 	}
-		
 	
 }
