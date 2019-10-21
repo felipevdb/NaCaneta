@@ -22,4 +22,8 @@ public class ListaMaterial {
 		this.itens = new ArrayList<Item>();
 		this.id = id;
 	}
+	
+	public String getSerie() {
+		return serie;
+	}
 }

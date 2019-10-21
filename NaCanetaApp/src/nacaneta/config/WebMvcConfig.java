@@ -19,8 +19,8 @@ import nacaneta.dao.ListaMaterialDao;
 public class WebMvcConfig {
 
 	
-	private static final String ACCESS_KEY = "aplicacao";
-	private static final String SECRET_KEY = "aplicacao";
+	private static final String ACCESS_KEY = "admin";
+	private static final String SECRET_KEY = "admin123";
 	
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
@@ -33,16 +33,17 @@ public class WebMvcConfig {
 	}
 	
 	@Bean
-	public DriverManagerDataSource getDataSource() {
+	public static DriverManagerDataSource getDataSource() {
 
 		DriverManagerDataSource ds = new DriverManagerDataSource();
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost:3306/cotacaosystem");
+		ds.setUrl("jdbc:mysql://db-ee.ccqg3bzryqnb.us-east-1.rds.amazonaws.com:3306/cotacaosystem");
 		ds.setUsername(ACCESS_KEY);
 		ds.setPassword(SECRET_KEY);
 
 		return ds;
 	}
+	
 	
 	
 }

@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 
 <!DOCTYPE html>
 <html>
@@ -28,10 +29,20 @@
 				<h1 class="tituloPrincipal">Registrar Cotação</h1>
 				<form class="myForm">
 					<div class="contact">
-						<label for="listamaterial"><b>Lista de Material</b></label> <select
+						<label for="listamaterial"><b>Lista de Material</b></label> 
+						<select
 							name="listamaterial" id="listamaterial">
 							<option value="Lista PUC">Lista PUC</option>
-						</select> <label for="loja"><b>Papelaria/Loja</b></label> <select
+						</select>
+						
+						<form:select path="listaMaterial">
+							<form:option value="-" label="listamaterial"/>
+							<form:options items="${listaMaterial}" itemValue="serie" itemLabel="serie"/>
+						</form:select>
+						
+						
+						<label for="loja"><b>Papelaria/Loja</b></label> 
+						<select
 							name="loja" id="loja">
 							<option value="Papelaria PUC">Papelaria PUC</option>
 						</select> <label for="valor"><b>Preço Total</b></label> <input type="text"

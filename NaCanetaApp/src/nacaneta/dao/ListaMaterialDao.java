@@ -21,7 +21,7 @@ public class ListaMaterialDao implements DaoGenerico<ListaMaterial> {
 
 	@Override
 	public List<ListaMaterial> getAll() {
-		List<ListaMaterial> list = jdbcTemp.query("select Id, Serie, Ano from listaMaterial", new RowMapper<ListaMaterial>() {
+		List<ListaMaterial> list = jdbcTemp.query("select Id, Serie, Ano from ListaMaterial", new RowMapper<ListaMaterial>() {
 
 			@Override
 			public ListaMaterial mapRow(ResultSet rs, int rowNum) throws SQLException {
