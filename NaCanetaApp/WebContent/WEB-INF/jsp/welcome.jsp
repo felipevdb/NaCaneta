@@ -1,5 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -29,35 +29,23 @@
 			<div class="mainBar">
 				<h1 class="tituloPrincipal">Registrar Cotação</h1>
 				<form class="myForm">
-					<div class="contact">
-						<label for="listamaterial"><b>Lista de Material</b></label> 
-						<select
-							name="listamaterial" id="listamaterial">
-							<option value="Lista PUC">Lista PUC</option>
-						</select>
-						
-						<form:select path="listaMaterial">
-							<form:option value="-" label="listamaterial"/>
-							<form:options items="${listaMaterial}" itemValue="serie" itemLabel="serie"/>
-						</form:select>
-						
-						
-						<label for="loja"><b>Papelaria/Loja</b></label> 
-						<select
-							name="loja" id="loja">
 					<div class="inputs">
 						<label for="escola"><b>Escola</b><span class="addNew" id="add_escola">&#9998; adicionar escola</span></label> 
-						<select name="escola" id="escola">
-							<option value="PUC">PUC</option>
-						</select>
+						<form:select path="escola" id="escola">
+							<form:option value="-" label="Escola"/>
+							<form:options items="${escola}" itemValue="nome" itemLabel="nome"/>
+						</form:select>	
 						<label for="listamaterial"><b>Lista de Material</b><span class="addNew" id="add_lista">&#9783; adicionar lista</span></label> 
-						<select name="listamaterial" id="listamaterial">
-							<option value="Lista PUC 2019">Lista PUC 2019</option>
-						</select>
+						<form:select path="listaMaterial" id="listaMaterial">
+							<form:option value="-" label="Lista de Material"/>
+							<form:options items="${listaMaterial}" itemValue="serie" itemLabel="serie"/>
+						</form:select>
 						<label for="loja"><b>Loja/Papelaria</b><span class="addNew" id="add_loja">&#36; adicionar loja</span></label>
-						<select name="loja" id="loja">
-							<option value="Papelaria PUC">Papelaria PUC</option>
-						</select>
+						<form:select path="loja" id= "loja">
+							<form:option value="-" label="Loja/Papelaria"/>
+							<form:options items="${loja}" itemValue="nome" itemLabel="nome"/>
+						</form:select>						
+						
 						<label for="valor"><b>Preço Total</b></label>
 						<input type="text" id="valor" placeholder="200,00">
 						<div class="formButtons">
