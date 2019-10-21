@@ -16,14 +16,23 @@ public class ListaMaterial {
 		this.itens = new ArrayList<Item>();
 	}
 	
-	public ListaMaterial(int id, String serie, int ano) {
-		this.serie = serie;
-		this.ano = ano;
-		this.itens = new ArrayList<Item>();
+	public void setId(int id) {
 		this.id = id;
 	}
 	
+	public int getId() {
+		return this.id;
+	}
+	
 	public String getSerie() {
-		return serie;
+		return this.serie;
+	}
+	
+	public int getAno() {
+		return this.ano;
+	}
+	
+	public ArrayList<Item> getItens(){
+		return this.itens;
 	}
 }

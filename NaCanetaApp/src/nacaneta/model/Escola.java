@@ -17,16 +17,32 @@ public class Escola {
 		this.listasmateriais = new ArrayList<ListaMaterial>();
 	}
 	
-	public Escola(int id, String nome, String endereco, String telefone) {
-		this.nome = nome;
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.listasmateriais = new ArrayList<ListaMaterial>();
+	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public String getNome() {
+		return this.nome;
+	}
+	
+	public String getEndereco() {
+		return this.endereco;
+	}
+	
+	public String getTelefone() {
+		return this.telefone;
+	}
+	
+	public ArrayList<ListaMaterial> getListasmateriais(){
+		return this.listasmateriais;
+	}
 
-	public boolean adicionarListaMaterial(int id, String serie, int ano) {
-		this.listasmateriais.add(new ListaMaterial(serie, ano));
+	public boolean adicionarListaMaterial(ListaMaterial listaMaterial) {
+		this.listasmateriais.add(listaMaterial);
 		return true;
 	}
 
@@ -37,10 +53,6 @@ public class Escola {
 		} else {
 			return false;
 		}
-	}
-
-	public ArrayList<ListaMaterial> mostrarListas() {
-		return this.listasmateriais;
 	}
 
 	public boolean editarListaMaterial(int numero_lista, String serie, int ano) {

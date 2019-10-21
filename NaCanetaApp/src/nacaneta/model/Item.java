@@ -10,10 +10,19 @@ public class Item {
 		this.quantidade = quantidade;
 	}
 	
-	public Item(int id ,String descricao, int quantidade) {
-		this.descricao = descricao;
-		this.quantidade = quantidade;
+	public void setId(int id) {
 		this.id = id;
 	}
 	
+	public int getId() {
+		return this.id;
+	}
+	
+	public String getDescricao() {
+		return this.descricao;
+	}
+	
+	public int getQuantidade() {
+		return this.quantidade;
+	}
 }

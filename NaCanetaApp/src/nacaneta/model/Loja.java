@@ -16,12 +16,28 @@ public class Loja {
 		this.produtos = new ArrayList<Produto>();
 	}
 	
-	public Loja(int id, String nome, String endereco, String telefone) {
-		this.nome = nome;
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.produtos = new ArrayList<Produto>();
+	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public String getNome() {
+		return this.nome;
+	}
+	
+	public String getEndereco() {
+		return this.endereco;
+	}
+	
+	public String getTelefone() {
+		return this.telefone;
+	}
+	
+	public ArrayList<Produto> getProdutos() {
+		return this.produtos;
 	}
 
 	public boolean adicionarProduto(int id, String descricao, String marca, float preco) {
@@ -36,10 +52,6 @@ public class Loja {
 		} else {
 			return false;
 		}
-	}
-
-	public ArrayList<Produto> mostrarProdutos() {
-		return this.produtos;
 	}
 
 	public boolean editarProduto(int numero_produto, String descricao, String marca, float preco) {

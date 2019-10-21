@@ -14,19 +14,25 @@ public class Cotacao {
 		this.loja = loja;
 		this.valor = calcularValor(this.lista_material, this.loja);
 	}
-
-	public float mostrarValor() {
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public float getValor() {
 		return this.valor;
 	}
-
-	public boolean trocarLoja(Loja loja) {
-		this.loja = loja;
-		return true;
+	
+	public ListaMaterial getLista_material() {
+		return this.lista_material;
 	}
-
-	public boolean trocarListaMaterial(ListaMaterial lista_material) {
-		this.lista_material = lista_material;
-		return true;
+	
+	public Loja getLoja() {
+		return this.loja;
 	}
 
 	private float calcularValor(ListaMaterial lista_material, Loja loja) {
