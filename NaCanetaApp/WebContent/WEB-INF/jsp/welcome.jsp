@@ -4,13 +4,14 @@
 <html>
 
 <head>
-<meta charset='UTF-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-<title>NaCaneta!</title>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-<link rel='stylesheet' type='text/css' media='screen'
-	href='css/style.css'>
-<script src='js/script.js'></script>
+	<meta charset='UTF-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<link rel="shortcut icon" href="css/favicon.ico?" type="image/x-icon" />
+	<title>NaCaneta! Cotação Escolar</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel='stylesheet' type='text/css' media='screen'
+		href='css/style.css'>
+	<script src='js/script.js'></script>
 </head>
 
 <body>
