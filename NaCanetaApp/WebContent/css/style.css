@@ -1,9 +1,13 @@
 @import
 	url('https://fonts.googleapis.com/css?family=Assistant|Pacifico|Lato&display=swap')
 	;
+	
+body {
+	  background-image: url("bg_tile.jpg");
+	  background-size: 250px 250px;
+}
 
 html, body {
-	background-color: #FBFBFB;
 	font-family: 'Assistant', sans-serif;
 	font-size: 1em;
 	color: black;
@@ -83,23 +87,23 @@ a {
 	padding: 1.8em;
 }
 
-.contact {
+.inputs {
 	flex: 1;
 	order: 1;
 	margin-right: 2em;
 }
 
-.contact label {
+.inputs label {
 	margin-top: 1pc;
 }
 
-.contact input {
+.inputs input {
 	width: 30%;
 	border-radius: 10px;
 	border-style: none;
 }
 
-.contact input, .contact button {
+.inputs input, .inputs button {
 	padding: 1em;
 	margin-bottom: 1em;
 }
@@ -108,7 +112,14 @@ a {
 	display: block;
 }
 
-.contact button {
+.addNew {
+	font-size: 0.7em;
+	margin-left: 1em;
+	cursor: pointer;
+	color: #65A192;
+}
+
+.inputs button {
 	background-color: #7286B3;
 	color: white;
 	border-style: none;

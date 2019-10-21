@@ -27,15 +27,21 @@
 			<div class="mainBar">
 				<h1 class="tituloPrincipal">Registrar Cotação</h1>
 				<form class="myForm">
-					<div class="contact">
-						<label for="listamaterial"><b>Lista de Material</b></label> <select
-							name="listamaterial" id="listamaterial">
-							<option value="Lista PUC">Lista PUC</option>
-						</select> <label for="loja"><b>Papelaria/Loja</b></label> <select
-							name="loja" id="loja">
+					<div class="inputs">
+						<label for="escola"><b>Escola</b><span class="addNew">&#9998; adicionar escola</span></label> 
+						<select name="escola" id="escola">
+							<option value="PUC">PUC</option>
+						</select>
+						<label for="listamaterial"><b>Lista de Material</b><span class="addNew">&#9783; adicionar lista</span></label> 
+						<select name="listamaterial" id="listamaterial">
+							<option value="Lista PUC 2019">Lista PUC 2019</option>
+						</select>
+						<label for="loja"><b>Loja/Papelaria</b><span class="addNew">&#36; adicionar loja</span></label>
+						<select name="loja" id="loja">
 							<option value="Papelaria PUC">Papelaria PUC</option>
-						</select> <label for="valor"><b>Preço Total</b></label> <input type="text"
-							id="valor">
+						</select>
+						<label for="valor"><b>Preço Total</b></label>
+						<input type="text" id="valor" placeholder="200,00">
 						<div class="formButtons">
 							<button type="submit">limpar</button>
 							<button type="submit">salvar</button>
