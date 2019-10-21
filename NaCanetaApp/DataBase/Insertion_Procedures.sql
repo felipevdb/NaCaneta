@@ -61,3 +61,11 @@ BEGIN
     INSERT INTO `cotacaosystem`.`Escola_ListaMaterial`(IdEscola , IdListaMaterial) VALUES (IdEscola , IdListaMaterial);
 END $$
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS Inserir_Loja;
+DELIMITER $$
+CREATE PROCEDURE Inserir_Loja (IN Nome VARCHAR(200), Endereco  VARCHAR(100), Telefone VARCHAR(100))
+BEGIN
+    INSERT INTO `cotacaosystem`.`Loja`(Nome , Endereco, Telefone) VALUES (Nome , Endereco, Telefone);
+END $$
+DELIMITER ;
