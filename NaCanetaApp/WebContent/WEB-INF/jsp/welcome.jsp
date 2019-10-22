@@ -12,6 +12,7 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel='stylesheet' type='text/css' media='screen'
 		href='css/style.css'>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -56,9 +57,8 @@
 				</form>
 			</div>
 			<div class="sideBar">
-				<h1 class="tituloSide">Cotações</h1>
-				<ul class="listaSide">
-					<li>Teste: Id #${cotacao.get(0).getId()}</li>
+				<h1 class="tituloSide">Cotações <span id="refreshCotacoes" onclick="listCotacoes()">&#10227;</span></h1>
+				<ul class="listaSide" id="cotacoes_lista">
 				</ul>
 			</div>
 		</main>
@@ -69,7 +69,8 @@
 	  <div class="modal-content" id="modal_content">
 	  </div>
 	</div>
-	<script charset="UTF-8" src='js/script.js'></script>
 </body>
+
+<jsp:include page="script.jsp" />
 
 </html>

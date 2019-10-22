@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<script type="text/javascript" charset="utf-8">
 // Get the modal
 var modal = document.getElementById("myModal");
 var modal_content = document.getElementById("modal_content");
@@ -10,6 +13,9 @@ var escola_input = document.getElementById("escola");
 var lista_input = document.getElementById("listaMaterial");
 var loja_input = document.getElementById("loja");
 var valor_input = document.getElementById("valor");
+
+// Get cotacoes list
+var cotacao_lista = document.getElementById("cotacoes_lista");
 
 
 
@@ -132,3 +138,12 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
 	modal.style.display = "none";
 }
+
+function listCotacoes(){
+	$.get("listCotacao", function(data, status){
+		let li = document.createElement("li");
+		li.appendChild(document.createTextNode(data));
+		cotacao_lista.appendChild(li);
+	  });
+}
+</script>
