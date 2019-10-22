@@ -37,7 +37,7 @@ public class WebMvcConfig {
 
 		DriverManagerDataSource ds = new DriverManagerDataSource();
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://db-ee.ccqg3bzryqnb.us-east-1.rds.amazonaws.com:3306/cotacaosystem");
+		ds.setUrl("jdbc:mysql://db-ee.cyqhp78drxs4.sa-east-1.rds.amazonaws.com:3306/cotacaosystem");
 		ds.setUsername(ACCESS_KEY);
 		ds.setPassword(SECRET_KEY);
 

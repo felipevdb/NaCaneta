@@ -15,6 +15,11 @@ public class Cotacao {
 		this.valor = calcularValor(this.lista_material, this.loja);
 	}
 	
+	// TEST
+	public Cotacao(int id) {
+		this.id = id;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
