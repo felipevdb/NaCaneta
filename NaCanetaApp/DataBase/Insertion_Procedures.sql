@@ -69,3 +69,11 @@ BEGIN
     INSERT INTO `cotacaosystem`.`Loja`(Nome , Endereco, Telefone) VALUES (Nome , Endereco, Telefone);
 END $$
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS Inserir_Cotacao;
+DELIMITER $$
+CREATE PROCEDURE Inserir_Cotacao (IN valor FLOAT, IdListaMaterial  int, IdLoja INT)
+BEGIN
+    INSERT INTO `cotacaosystem`.`Cotacao`(valor , IdListaMaterial, IdLoja) VALUES (valor , IdListaMaterial, IdLoja);
+END $$
+DELIMITER ;

@@ -77,4 +77,13 @@ CREATE TABLE `cotacaosystem`.`Escola_ListaMaterial`(
     FOREIGN KEY (`IdListaMaterial`) REFERENCES `ListaMaterial`(`Id`)
 );
 
-
+DROP TABLE IF EXISTS  `cotacaosystem`.`Cotacao`;
+CREATE TABLE `cotacaosystem`.`cotacao`(
+	`Id`  INT NOT NULL AUTO_INCREMENT,
+    `valor` FLOAT NOT NULL,
+    `IdListaMaterial` INT NOT NULL,
+    `IdLoja` INT NOT NULL,
+    PRIMARY KEY (`Id`),
+    FOREIGN KEY (`IdLoja`) REFERENCES `Loja`(`Id`),
+    FOREIGN KEY (`IdListaMaterial`) REFERENCES `ListaMaterial`(`Id`)
+);
