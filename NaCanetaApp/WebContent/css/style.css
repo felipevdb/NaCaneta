@@ -188,6 +188,10 @@ a {
   color: white !important;
 }
 
+.newButton {
+	background-color: #65ABA3 !important;
+}
+
 .modal-content h1{
   color: white !important;
 }
