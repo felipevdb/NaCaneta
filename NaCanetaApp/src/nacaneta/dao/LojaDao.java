@@ -1,11 +1,14 @@
 package nacaneta.dao;
 
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.mysql.jdbc.CallableStatement;
 
 import nacaneta.model.Loja;
 import nacaneta.rowmapper.LojaRowMapper;
@@ -20,15 +23,29 @@ private JdbcTemplate jdbcTemp;
 
 	@Override
 	public List<Loja> getAll() {
-		List<Loja> listaLoja = jdbcTemp.query("select Id as id_Loja, Nome as nome_Loja, Endereco as endereco_Loja,Telefone as telefone_Loja  from Loja", new LojaRowMapper());
+		List<Loja> listaLoja = jdbcTemp.query("CALL Mostrar_Loja()", new LojaRowMapper());
 		
 		return listaLoja;
 	}
 
 	@Override
-	public void insert(String[] parameter) {
+	public void insert(String[] parameter) throws SQLException {
 		
-		//TO DO
+		if (parameter.length == 3) {
+			
+			String Nome = parameter[0];
+			String Endereco = parameter[2];
+			String Telefone = parameter[3];
+		
+			String procedureQuery = "CALL Adicionar_Loja(?, ?, ?)";
+			CallableStatement  statement = (CallableStatement ) jdbcTemp.getDataSource().getConnection().prepareCall(procedureQuery);
+			
+			statement.setString(1, Nome);
+			statement.setString(2, Endereco);
+			statement.setString(3, Telefone);
+		
+			statement.execute();
+		}
 		
 	}
 
