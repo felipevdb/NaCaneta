@@ -37,6 +37,26 @@
 
         <!--Main-->
         <div class="main">
+        	<div class="main_nav">
+	        	<ul class="list_nav">
+		        	<li>
+       					<img class="nav_icon" src="css/cotacao.png" />
+       					<span class="nav_tag">cotações</span>
+		        	</li>
+		        	<li>
+		        		<img class="nav_icon" src="css/escola.png" />
+       					<span class="nav_tag">escolas</span>
+		        	</li>
+		        	<li>
+		        		<img class="nav_icon" src="css/lista.png" />
+       					<span class="nav_tag">listas de material</span>
+		        	</li>
+		        	<li>
+		        		<img class="nav_icon" src="css/loja.png" />
+       					<span class="nav_tag">lojas e papelarias</span>
+		        	</li>
+	        	</ul>
+        	</div>
             <div class="main_content">
                 <h1 class="main_title">Registrar Cotação</h1>
                 <form class="main_form" method="post">
