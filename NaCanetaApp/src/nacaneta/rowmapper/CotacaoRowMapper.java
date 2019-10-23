@@ -6,14 +6,14 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import nacaneta.model.Cotacao;
-import nacaneta.model.ListaMaterial;
 
 public class CotacaoRowMapper implements RowMapper<Cotacao> {
 
 	@Override
 	public Cotacao mapRow(ResultSet rs, int rowNum) throws SQLException {
-		// TEST
-		Cotacao cotacao = new Cotacao(rs.getInt("id"), rs.getInt("valor"));
+		Cotacao cotacao = new Cotacao(new ListaMaterialRowMapper().mapRow(rs, rowNum), new LojaRowMapper().mapRow(rs, rowNum), rs.getFloat("valor_Cotacao"));
+		
+		cotacao.setId(rs.getInt("id_Cotacao"));
 
 		return cotacao;
 	}

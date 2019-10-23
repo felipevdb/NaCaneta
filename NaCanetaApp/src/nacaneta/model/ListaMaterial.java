@@ -10,26 +10,35 @@ public class ListaMaterial {
 	public ArrayList<Item> itens;
 	
 
-	public ListaMaterial(String serie, int ano) {
-		this.serie = serie;
-		this.ano = ano;
-		this.itens = new ArrayList<Item>();
-	}
-	
-	public void setId(int id) {
-		this.id = id;
+	public ListaMaterial() {
 	}
 	
 	public int getId() {
 		return this.id;
 	}
 	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getSerie() {
 		return this.serie;
 	}
 	
+	public void setSerie(String serie) {
+		this.serie = serie;
+	}
+	
 	public int getAno() {
 		return this.ano;
+	}
+	
+	public void setAno(int ano) {
+		this.ano = ano;
+	}
+	
+	public void setItens(ArrayList<Item> itens){
+		this.itens = itens;
 	}
 	
 	public ArrayList<Item> getItens(){

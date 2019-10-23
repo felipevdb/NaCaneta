@@ -1,17 +1,20 @@
 package nacaneta.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.mysql.jdbc.CallableStatement;
+
 import nacaneta.model.Cotacao;
-import nacaneta.model.ListaMaterial;
 import nacaneta.rowmapper.CotacaoRowMapper;
-import nacaneta.rowmapper.ListaMaterialRowMapper;
+
 
 public class CotacaoDao implements DaoGenerico<Cotacao>{
+	
 	private JdbcTemplate jdbcTemp;
 	
 	public CotacaoDao(DataSource dataSource) {
@@ -20,15 +23,30 @@ public class CotacaoDao implements DaoGenerico<Cotacao>{
 
 	@Override
 	public List<Cotacao> getAll() {
-		// TEST
-		List<Cotacao> list = jdbcTemp.query("select id, valor from Cotacao", new CotacaoRowMapper());
-		return list;
+		List<Cotacao> listaCotacao = jdbcTemp.query("CALL Mostrar_Cotacao_ALL()", new CotacaoRowMapper());
+		
+		return listaCotacao;
 	}
 
 	@Override
-	public void insert(String[] parameter) {
+	public void insert(String[] parameter) throws SQLException {
 		
-		//TO DO
+		if (parameter.length == 3) {
+			
+			float valor = Float.parseFloat(parameter[0]);
+			int idListaMaterial = Integer.parseInt(parameter[2]);
+			int idLoja = Integer.parseInt(parameter[3]);
+		
+			String procedureQuery = "CALL Adicionar_Cotacao (?, ?, ?)";
+			CallableStatement  statement = (CallableStatement ) jdbcTemp.getDataSource().getConnection().prepareCall(procedureQuery);
+			
+			statement.setFloat(1, valor);
+			statement.setInt(2, idListaMaterial);
+			statement.setInt(3, idLoja);
+		
+			statement.execute();
+		}
 		
 	}
+
 }
