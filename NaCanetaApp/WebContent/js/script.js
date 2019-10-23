@@ -134,7 +134,16 @@ function listCotacoes() {
     	var dataArr = data.split(',');
     	dataArr.forEach(function (item, index) {
     		let li = document.createElement("li");
-            li.appendChild(document.createTextNode("Cotação #" + index + " = " + item));
+    		li.className = "dropdown"
+    		let span = document.createElement("span");
+    		span.appendChild(document.createTextNode("Cotação #" + index + " = " + item));
+    		li.appendChild(span);
+    		let div = document.createElement("div");
+    		div.className = "dropdown-content";
+    		let info = document.createElement("p");
+    		info.appendChild(document.createTextNode("Informações"));
+    		div.appendChild(info);
+    		li.appendChild(div);
             list_cotacoes.appendChild(li);
     	});
     });

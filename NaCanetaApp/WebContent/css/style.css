@@ -207,6 +207,24 @@ body {
 	cursor: pointer;
 }
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(162, 217, 206, 0.98);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  color: white;
+  border-bottom-left-radius: 20pt;
+  border-bottom-right-radius: 20pt;
+  width: 15%;
+  padding: 12px;
+  margin-top: 14px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 /* Modal */
 .form_modal {
     display: none;
