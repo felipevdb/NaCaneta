@@ -13,7 +13,7 @@ public class CotacaoRowMapper implements RowMapper<Cotacao> {
 	@Override
 	public Cotacao mapRow(ResultSet rs, int rowNum) throws SQLException {
 		// TEST
-		Cotacao cotacao = new Cotacao(rs.getInt("id"));
+		Cotacao cotacao = new Cotacao(rs.getInt("id"), rs.getInt("valor"));
 
 		return cotacao;
 	}

@@ -21,7 +21,7 @@ public class CotacaoDao implements DaoGenerico<Cotacao>{
 	@Override
 	public List<Cotacao> getAll() {
 		// TEST
-		List<Cotacao> list = jdbcTemp.query("select Id from Cotacao", new CotacaoRowMapper());
+		List<Cotacao> list = jdbcTemp.query("select id, valor from Cotacao", new CotacaoRowMapper());
 		return list;
 	}
 

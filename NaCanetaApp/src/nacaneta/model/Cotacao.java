@@ -16,8 +16,9 @@ public class Cotacao {
 	}
 	
 	// TEST
-	public Cotacao(int id) {
+	public Cotacao(int id, float valor) {
 		this.id = id;
+		this.valor = valor;
 	}
 
 	public void setId(int id) {

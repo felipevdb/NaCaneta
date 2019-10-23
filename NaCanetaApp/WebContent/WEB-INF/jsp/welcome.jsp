@@ -8,7 +8,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <link rel="shortcut icon" href="css/favicon.ico?" type="image/x-icon" />
-    <title>NaCaneta! CotaÃ§Ã£o Escolar</title>
+    <title>NaCaneta! Cotação Escolar</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -39,32 +39,29 @@
         <div class="main">
             <div class="main_content">
                 <h1 class="main_title">Registrar Cotação</h1>
-                <form class="main_form">
+                <form class="main_form" method="post">
                     <div class="form_inputs">
                         <label for="escola"><b>Escola</b><span class="add_button" id="add_escola">&#9998; adicionar
                                 escola</span></label>
-                        <form:select path="escola" id="escola">
-                            <form:option value="-" label="Escola" />
-                            <form:options items="${escola}" itemValue="nome" itemLabel="nome" />
-                        </form:select>
-                        <span class="refresh" onclick="">&#10227;</span>
+                        <select id="escola">
+                            <option value="-">escola</option>
+                        </select>
+                        <span class="refresh" onclick="listEscolas()">&#10227;</span>
 
                         <label for="listamaterial"><b>Lista de Material</b><span class="add_button"
                                 id="add_lista">&#9783;
                                 adicionar lista</span></label>
-                        <form:select path="listaMaterial" id="listaMaterial" disabled="true">
-                            <form:option value="-" label="Lista de Material" />
-                            <form:options items="${listaMaterial}" itemValue="serie" itemLabel="serie" />
-                        </form:select>
-                        <span class="refresh" onclick="">&#10227;</span>
+                        <select id="listaMaterial" disabled="disabled">
+                            <option value="-">lista</option>
+                        </select>
+                        <span class="refresh" onclick="listListasMaterial()">&#10227;</span>
 
                         <label for="loja"><b>Loja/Papelaria</b><span class="add_button" id="add_loja">&#36; adicionar
                                 loja</span></label>
-                        <form:select path="loja" id="loja" disabled="true">
-                            <form:option value="-" label="Loja/Papelaria" />
-                            <form:options items="${loja}" itemValue="nome" itemLabel="nome" />
-                        </form:select>
-                        <span class="refresh" onclick="">&#10227;</span>
+                        <select id="loja" disabled="disabled">
+                            <option value="-">loja</option>
+                        </select>
+                        <span class="refresh" onclick="listLojas()">&#10227;</span>
 
                         <label for="valor"><b>Preço Total</b></label>
                         <input type="text" id="valor" placeholder="200,00" disabled="disabled">
@@ -81,8 +78,7 @@
         <!--SideBar-->
         <div class="sidebar">
             <h1 class="title_side">Cotações <span class="refresh" onclick="listCotacoes()">&#10227;</span></h1>
-            <ul class="list_side" id="cotacoes_lista">
-                <li>test</li>
+            <ul class="list_side" id="list_cotacoes">
             </ul>
         </div>
     </div>
@@ -94,6 +90,6 @@
         </div>
     </div>
 </body>
-<jsp:include page="script.jsp" />
+<script src="js/script.js" charset="UTF-8"></script>
 
 </html>
