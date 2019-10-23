@@ -20,7 +20,7 @@ private JdbcTemplate jdbcTemp;
 
 	@Override
 	public List<Loja> getAll() {
-		List<Loja> listaLoja = jdbcTemp.query("select Id, Nome, Endereco,Telefone  from Loja", new LojaRowMapper());
+		List<Loja> listaLoja = jdbcTemp.query("select Id as id_Loja, Nome as nome_Loja, Endereco as endereco_Loja,Telefone as telefone_Loja  from Loja", new LojaRowMapper());
 		
 		return listaLoja;
 	}

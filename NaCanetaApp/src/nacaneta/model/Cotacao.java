@@ -9,15 +9,10 @@ public class Cotacao {
 	public Loja loja;
 
 
-	public Cotacao(ListaMaterial lista_material, Loja loja) {
+	public Cotacao(ListaMaterial lista_material, Loja loja, float valor) {
 		this.lista_material = lista_material;
 		this.loja = loja;
-		this.valor = calcularValor(this.lista_material, this.loja);
-	}
-	
-	// TEST
-	public Cotacao(int id) {
-		this.id = id;
+		this.valor = valor;
 	}
 
 	public void setId(int id) {
@@ -32,6 +27,10 @@ public class Cotacao {
 		return this.valor;
 	}
 	
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+	
 	public ListaMaterial getLista_material() {
 		return this.lista_material;
 	}
@@ -40,15 +39,5 @@ public class Cotacao {
 		return this.loja;
 	}
 
-	private float calcularValor(ListaMaterial lista_material, Loja loja) {
-		if (validarProdutos(lista_material, loja)) {
-			return 100;
-		} else {
-			return -1;
-		}
-	}
 
-	private boolean validarProdutos(ListaMaterial lista_material, Loja loja) {
-		return true;
-	}
 }

@@ -19,7 +19,8 @@ public class EscolaDao implements DaoGenerico<Escola> {
 
 	@Override
 	public List<Escola> getAll() {
-		List<Escola> list = jdbcTemp.query("SELECT Id, Nome, Endereco, Telefone FROM Escola", new EscolaRowMapper());
+		
+		List<Escola> list = jdbcTemp.query("SELECT Id as id_Escola, Nome as nome_Escola, Endereco as endereco_Escola, Telefone as telefone_Escola FROM Escola", new EscolaRowMapper());
 		
 		return list;
 	}

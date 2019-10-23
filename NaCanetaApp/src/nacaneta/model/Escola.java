@@ -10,10 +10,7 @@ public class Escola {
 	public String telefone;
 	public ArrayList<ListaMaterial> listasmateriais;
 
-	public Escola(String nome, String endereco, String telefone) {
-		this.nome = nome;
-		this.endereco = endereco;
-		this.telefone = telefone;
+	public Escola() {
 		this.listasmateriais = new ArrayList<ListaMaterial>();
 	}
 	
@@ -25,12 +22,24 @@ public class Escola {
 		return this.id;
 	}
 	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
 	public String getNome() {
 		return this.nome;
 	}
 	
+	public void setEndereco (String endereco) {
+		this.endereco = endereco;
+	}
+	
 	public String getEndereco() {
 		return this.endereco;
+	}
+	
+	public void setTelefone (String telefone) {
+		this.telefone = telefone;
 	}
 	
 	public String getTelefone() {
