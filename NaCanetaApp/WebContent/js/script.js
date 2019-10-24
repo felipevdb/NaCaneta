@@ -11,6 +11,7 @@ var escola_input = document.getElementById("escola");
 var lista_input = document.getElementById("listaMaterial");
 var loja_input = document.getElementById("loja");
 var valor_input = document.getElementById("valor");
+var submit_btn = document.getElementById("submit_btn");
 
 // Get form data
 var list_cotacoes = document.getElementById("list_cotacoes");
@@ -22,6 +23,7 @@ var list_lojas = document.getElementById("loja");
 escola_input.onchange = function () {
     if (escola_input.value != '-') {
         lista_input.disabled = false;
+        listListasMaterialbyEscola(escola_input.value);
     } else {
         lista_input.disabled = true;
     }
@@ -38,6 +40,7 @@ lista_input.onchange = function () {
 loja_input.onchange = function () {
     if (loja_input.value != '-') {
         valor_input.disabled = false;
+        submit_btn.disabled = false;
     } else {
         valor_input.disabled = true;
     }
@@ -131,18 +134,23 @@ function removeContent() {
 function listCotacoes() {
     $.get("listCotacoes", function (data, status) {
     	cleanCotacoes();
-    	var dataArr = data.split(',');
-    	dataArr.forEach(function (item, index) {
+    	data.forEach(function (item, index) {
     		let li = document.createElement("li");
     		li.className = "dropdown"
     		let span = document.createElement("span");
-    		span.appendChild(document.createTextNode("Cotação #" + index + " = " + item));
+    		span.appendChild(document.createTextNode("Cotação #" + parseInt(index+1) + " = R$" + item["valor"]));
     		li.appendChild(span);
     		let div = document.createElement("div");
     		div.className = "dropdown-content";
-    		let info = document.createElement("p");
-    		info.appendChild(document.createTextNode("Informações"));
-    		div.appendChild(info);
+    		let escola = document.createElement("p");
+    		let lista = document.createElement("p");
+    		let loja = document.createElement("p");
+    		escola.appendChild(document.createTextNode("Escola: "+item["escola"]));
+    		lista.appendChild(document.createTextNode("Lista: "+item["lista"]));
+    		loja.appendChild(document.createTextNode("Loja: "+item["loja"]));
+    		div.appendChild(escola);
+    		div.appendChild(lista);
+    		div.appendChild(loja);
     		li.appendChild(div);
             list_cotacoes.appendChild(li);
     	});
@@ -156,11 +164,10 @@ function cleanCotacoes() {
 function listEscolas() {
     $.get("listEscolas", function (data, status) {
     	cleanEscolas();
-    	var dataArr = data.split(',');
-    	dataArr.forEach(function (item, index) {
+    	data.forEach(function (item, index) {
     		let option = document.createElement("option");
-    		option.value = item;
-            option.appendChild(document.createTextNode(item));
+    		option.value = item['id'];
+            option.appendChild(document.createTextNode(item['nome']));
             list_escolas.appendChild(option);
     	});
     });
@@ -174,17 +181,26 @@ function cleanEscolas() {
     list_escolas.appendChild(option);
 }
 
-function listListasMaterial() {
-    $.get("listListasMaterial", function (data, status) {
-    	cleanListasMaterial();
-    	var dataArr = data.split(',');
-    	dataArr.forEach(function (item, index) {
-    		let option = document.createElement("option");
-    		option.value = item;
-            option.appendChild(document.createTextNode(item));
-            list_material.appendChild(option);
-    	});
-    });
+function listListasMaterialbyEscola(escola) {
+	$.ajax({
+		  url: "listListasMaterialbyEscola",
+		  type: "get",
+		  data: { 
+		    escola: escola
+		  },
+		  success: function(data) {
+			cleanListasMaterial();
+			data.forEach(function (item, index) {
+				let option = document.createElement("option");
+				option.value = item['id'];
+			    option.appendChild(document.createTextNode(item['nome']));
+			    list_material.appendChild(option);
+			});
+		  },
+		  error: function(error) {
+			  console.log(error);
+		  }
+		});
 }
 
 function cleanListasMaterial() {
@@ -198,11 +214,10 @@ function cleanListasMaterial() {
 function listLojas() {
     $.get("listLojas", function (data, status) {
     	cleanLojas();
-    	var dataArr = data.split(',');
-    	dataArr.forEach(function (item, index) {
+    	data.forEach(function (item, index) {
     		let option = document.createElement("option");
-    		option.value = item;
-            option.appendChild(document.createTextNode(item));
+    		option.value = item['id'];
+            option.appendChild(document.createTextNode(item['nome']));
             list_lojas.appendChild(option);
     	});
     });
@@ -219,6 +234,5 @@ function cleanLojas() {
 $(document).ready(function(){
 	listCotacoes();
 	listEscolas();
-	listListasMaterial();
 	listLojas();
 });

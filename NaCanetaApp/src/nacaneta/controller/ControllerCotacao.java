@@ -1,6 +1,6 @@
 package nacaneta.controller;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import nacaneta.config.WebMvcConfig;
 import nacaneta.dao.CotacaoDao;
@@ -33,68 +36,107 @@ public class ControllerCotacao {
 	public ModelAndView Index() {
 		ModelAndView modelView = new ModelAndView("welcome");
 
-		/*
-		 * listasMaterial = new ListaMaterialDao(WebMvcConfig.getDataSource()).getAll();
-		 * lojas = new LojaDao(WebMvcConfig.getDataSource()).getAll(); escolas = new
-		 * EscolaDao(WebMvcConfig.getDataSource()).getAll();
-		 * 
-		 * modelView.addObject("listaMaterial", listasMaterial);
-		 * modelView.addObject("loja", lojas); modelView.addObject("escola", escolas);
-		 */
-
 		return modelView;
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/listCotacoes", method = RequestMethod.GET)
-	public String listCotacoes(HttpServletRequest request, Model model) {
+	public JsonArray listCotacoes(HttpServletRequest request, Model model) {
 		cotacoes = new CotacaoDao(WebMvcConfig.getDataSource()).getAll();
-		List<String> cotacoes_values = new ArrayList<String>();
+		JsonArray json_cotacoes = new JsonArray();
 
 		for (Cotacao cotacao : cotacoes) {
-			cotacoes_values.add(String.valueOf(cotacao.getValor()));
+			JsonObject json_cotacao = new JsonObject();
+			json_cotacao.addProperty("valor", String.valueOf(cotacao.getValor()));
+			json_cotacao.addProperty("lista", String
+					.valueOf(cotacao.getLista_material().getAno() + "/" + cotacao.getLista_material().getSerie()));
+			json_cotacao.addProperty("loja", String.valueOf(cotacao.getLoja().getNome()));
+			json_cotacao.addProperty("escola", String.valueOf(cotacao.getEscola().getNome()));
+			json_cotacoes.add(json_cotacao);
 		}
 
-		return String.join(",", cotacoes_values);
+		return json_cotacoes;
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/listEscolas", method = RequestMethod.GET)
-	public String listEscolas(HttpServletRequest request, Model model) {
+	public JsonArray listEscolas(HttpServletRequest request, Model model) {
 		escolas = new EscolaDao(WebMvcConfig.getDataSource()).getAll();
-		List<String> escolas_nomes = new ArrayList<String>();
+		JsonArray json_escolas = new JsonArray();
 
 		for (Escola escola : escolas) {
-			escolas_nomes.add(String.valueOf(escola.getNome()));
+			JsonObject json_escola = new JsonObject();
+			json_escola.addProperty("nome", escola.getNome());
+			json_escola.addProperty("id", escola.getId());
+			json_escolas.add(json_escola);
 		}
 
-		return String.join(",", escolas_nomes);
+		return json_escolas;
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/listListasMaterial", method = RequestMethod.GET)
-	public String listListasMaterial(HttpServletRequest request, Model model) {
+	public JsonArray listListasMaterial(HttpServletRequest request, Model model) {
 		listasMaterial = new ListaMaterialDao(WebMvcConfig.getDataSource()).getAll();
-		List<String> listas_nomes = new ArrayList<String>();
+		JsonArray json_listas = new JsonArray();
 
 		for (ListaMaterial lista : listasMaterial) {
-			listas_nomes.add(String.valueOf(lista.getAno()) + "/" + String.valueOf(lista.getSerie()));
+			JsonObject json_lista = new JsonObject();
+			json_lista.addProperty("id", lista.getId());
+			json_lista.addProperty("nome", String.valueOf(lista.getAno()) + "/" + String.valueOf(lista.getSerie()));
+			json_listas.add(json_lista);
 		}
 
-		return String.join(",", listas_nomes);
+		return json_listas;
 	}
-	
+
+	@ResponseBody
+	@RequestMapping(value = "/listListasMaterialbyEscola", method = RequestMethod.GET)
+	public JsonArray listListasMaterialEscola(HttpServletRequest request, Model model) {
+		JsonArray json_listas = new JsonArray();
+		try {
+			listasMaterial = new ListaMaterialDao(WebMvcConfig.getDataSource())
+					.getByEscola(request.getParameter("escola"));
+
+			for (ListaMaterial lista : listasMaterial) {
+				JsonObject json_lista = new JsonObject();
+				json_lista.addProperty("id", lista.getId());
+				json_lista.addProperty("nome", String.valueOf(lista.getAno()) + "/" + String.valueOf(lista.getSerie()));
+				json_listas.add(json_lista);
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+
+		return json_listas;
+	}
+
 	@ResponseBody
 	@RequestMapping(value = "/listLojas", method = RequestMethod.GET)
-	public String listLojas(HttpServletRequest request, Model model) {
+	public JsonArray listLojas(HttpServletRequest request, Model model) {
 		lojas = new LojaDao(WebMvcConfig.getDataSource()).getAll();
-		List<String> lojas_nomes = new ArrayList<String>();
+		JsonArray json_lojas = new JsonArray();
 
 		for (Loja loja : lojas) {
-			lojas_nomes.add(String.valueOf(loja.getNome()));
+			JsonObject json_loja = new JsonObject();
+			json_loja.addProperty("id", loja.getId());
+			json_loja.addProperty("nome", loja.getNome());
+			json_lojas.add(json_loja);
 		}
 
-		return String.join(",", lojas_nomes);
+		return json_lojas;
+	}
+
+	@RequestMapping(value = "/welcome", method = RequestMethod.POST)
+	public void registerCotacao(HttpServletRequest request, Model model) {
+		String[] parameters = { request.getParameter("valor"), request.getParameter("lista"),
+				request.getParameter("loja") };
+
+		try {
+			new CotacaoDao(WebMvcConfig.getDataSource()).insert(parameters);
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
 	}
 
 }

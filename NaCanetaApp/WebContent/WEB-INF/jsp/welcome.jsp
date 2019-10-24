@@ -63,7 +63,7 @@
                     <div class="form_inputs">
                         <label for="escola"><b>Escola</b><span class="add_button" id="add_escola">&#9998; adicionar
                                 escola</span></label>
-                        <select id="escola">
+                        <select id="escola" name="escola">
                             <option value="-">escola</option>
                         </select>
                         <span class="refresh" onclick="listEscolas()">&#10227;</span>
@@ -71,24 +71,24 @@
                         <label for="listamaterial"><b>Lista de Material</b><span class="add_button"
                                 id="add_lista">&#9783;
                                 adicionar lista</span></label>
-                        <select id="listaMaterial" disabled="disabled">
+                        <select id="listaMaterial" name="lista" disabled="disabled">
                             <option value="-">lista</option>
                         </select>
-                        <span class="refresh" onclick="listListasMaterial()">&#10227;</span>
+                        <span class="refresh" onclick="listListasMaterialbyEscola(escola.value)">&#10227;</span>
 
                         <label for="loja"><b>Loja/Papelaria</b><span class="add_button" id="add_loja">&#36; adicionar
                                 loja</span></label>
-                        <select id="loja" disabled="disabled">
+                        <select id="loja" name="loja" disabled="disabled">
                             <option value="-">loja</option>
                         </select>
                         <span class="refresh" onclick="listLojas()">&#10227;</span>
 
                         <label for="valor"><b>Preço Total</b></label>
-                        <input type="text" id="valor" placeholder="200,00" disabled="disabled">
+                        <input type="text" id="valor" name="valor" placeholder="200,00" disabled="disabled" required>
 
                         <div class="form_buttons">
                             <button type="button" onclick="cleanForm(this)"><span>limpar</span></button>
-                            <button type="submit"><span>salvar</span></button>
+                            <button type="submit" disabled="disabled" id="submit_btn"><span>salvar</span></button>
                         </div>
                     </div>
                 </form>

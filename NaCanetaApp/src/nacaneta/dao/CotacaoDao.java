@@ -27,15 +27,15 @@ public class CotacaoDao implements DaoGenerico<Cotacao>{
 		
 		return listaCotacao;
 	}
+	
 
 	@Override
 	public void insert(String[] parameter) throws SQLException {
 		
 		if (parameter.length == 3) {
-			
 			float valor = Float.parseFloat(parameter[0]);
-			int idListaMaterial = Integer.parseInt(parameter[2]);
-			int idLoja = Integer.parseInt(parameter[3]);
+			int idListaMaterial = Integer.parseInt(parameter[1]);
+			int idLoja = Integer.parseInt(parameter[2]);
 		
 			String procedureQuery = "CALL Adicionar_Cotacao (?, ?, ?)";
 			CallableStatement  statement = (CallableStatement ) jdbcTemp.getDataSource().getConnection().prepareCall(procedureQuery);

@@ -11,7 +11,7 @@ public class CotacaoRowMapper implements RowMapper<Cotacao> {
 
 	@Override
 	public Cotacao mapRow(ResultSet rs, int rowNum) throws SQLException {
-		Cotacao cotacao = new Cotacao(new ListaMaterialRowMapper().mapRow(rs, rowNum), new LojaRowMapper().mapRow(rs, rowNum), rs.getFloat("valor_Cotacao"));
+		Cotacao cotacao = new Cotacao(new EscolaRowMapper().mapRow(rs, rowNum), new ListaMaterialRowMapper().mapRow(rs, rowNum), new LojaRowMapper().mapRow(rs, rowNum), rs.getFloat("valor_Cotacao"));
 		
 		cotacao.setId(rs.getInt("id_Cotacao"));
 
