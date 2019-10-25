@@ -43,6 +43,7 @@ loja_input.onchange = function () {
         submit_btn.disabled = false;
     } else {
         valor_input.disabled = true;
+        submit_btn.disabled = true
     }
 }
 
@@ -125,6 +126,9 @@ function generateForm(form) {
 
 function cleanForm(element) {
     element.parentElement.parentElement.parentElement.reset();
+    submit_btn.disabled = true;
+    list_lojas.disabled = true;
+    list_material = true;
 }
 
 function removeContent() {
