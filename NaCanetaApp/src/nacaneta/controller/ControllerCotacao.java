@@ -129,14 +129,19 @@ public class ControllerCotacao {
 
 	@RequestMapping(value = "/welcome", method = RequestMethod.POST)
 	public void registerCotacao(HttpServletRequest request, Model model) {
-		String[] parameters = { request.getParameter("valor"), request.getParameter("lista"),
-				request.getParameter("loja") };
+		
+		if(request.getParameter("valor").matches("[0-9]+")) {
+		
+			String[] parameters = { request.getParameter("valor").replace(',', '.'), request.getParameter("lista"),
+					request.getParameter("loja") };
 
-		try {
-			new CotacaoDao(WebMvcConfig.getDataSource()).insert(parameters);
-		} catch (SQLException e) {
-			System.out.println(e);
+			try {
+				new CotacaoDao(WebMvcConfig.getDataSource()).insert(parameters);
+			} catch (SQLException e) {
+				System.out.println(e);
+			}
 		}
 	}
+		
 
 }
