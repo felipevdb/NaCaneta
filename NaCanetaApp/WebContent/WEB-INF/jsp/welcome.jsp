@@ -83,7 +83,7 @@
                         </select>
                         <span class="refresh" onclick="listLojas()">&#10227;</span>
 
-                        <label for="valor"><b>Preço Total</b></label>
+                        <label for="valor"><b>Preço Total (R$)</b></label>
                         <input type="text" id="valor" name="valor" placeholder="200,00" disabled="disabled" required>
 
                         <div class="form_buttons">
