@@ -130,7 +130,8 @@ public class ControllerCotacao {
 	@RequestMapping(value = "/welcome", method = RequestMethod.POST)
 	public void registerCotacao(HttpServletRequest request, Model model) {
 		
-		if(request.getParameter("valor").matches("[0-9]+")) {
+		if(request.getParameter("valor").matches("^[0-9][0-9,.]+") && request.getParameter("lista") != "-" && request.getParameter("loja") != "-" 
+				&& request.getParameter("lista").isEmpty() == false && request.getParameter("loja").isEmpty() == false) {
 		
 			String[] parameters = { request.getParameter("valor").replace(',', '.'), request.getParameter("lista"),
 					request.getParameter("loja") };

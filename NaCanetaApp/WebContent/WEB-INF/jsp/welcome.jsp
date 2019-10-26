@@ -59,11 +59,11 @@
         	</div>
             <div class="main_content">
                 <h1 class="main_title">Registrar Cotação</h1>
-                <form class="main_form" method="post">
+                <form id="registrarCotacao" class="main_form" method="post">
                     <div class="form_inputs">
                         <label for="escola"><b>Escola</b><span class="add_button" id="add_escola">&#9998; adicionar
                                 escola</span></label>
-                        <select id="escola" name="escola">
+                        <select id="escola" name="escola" >
                             <option value="-">escola</option>
                         </select>
                         <span class="refresh" onclick="listEscolas()">&#10227;</span>
@@ -71,14 +71,14 @@
                         <label for="listamaterial"><b>Lista de Material</b><span class="add_button"
                                 id="add_lista">&#9783;
                                 adicionar lista</span></label>
-                        <select id="listaMaterial" name="lista" disabled="disabled">
+                        <select id="listaMaterial" name="lista" disabled="disabled" >
                             <option value="-">lista</option>
                         </select>
                         <span class="refresh" onclick="listListasMaterialbyEscola(escola.value)">&#10227;</span>
 
                         <label for="loja"><b>Loja/Papelaria</b><span class="add_button" id="add_loja">&#36; adicionar
                                 loja</span></label>
-                        <select id="loja" name="loja" disabled="disabled">
+                        <select id="loja" name="loja" disabled="disabled" >
                             <option value="-">loja</option>
                         </select>
                         <span class="refresh" onclick="listLojas()">&#10227;</span>

@@ -25,7 +25,12 @@ escola_input.onchange = function () {
         lista_input.disabled = false;
         listListasMaterialbyEscola(escola_input.value);
     } else {
-        lista_input.disabled = true;
+    	lista_input.disabled = true;
+    	lista_input.value = '-';
+    	loja_input.disabled = true;
+    	loja_input.value = '-';
+    	valor_input.disabled = true;
+        submit_btn.disabled = true
     }
 }
 
@@ -34,6 +39,9 @@ lista_input.onchange = function () {
         loja_input.disabled = false;
     } else {
         loja_input.disabled = true;
+        submit_btn.disabled = true;
+        loja_input.value = '-';
+        valor_input.disabled = true;
     }
 }
 
@@ -60,7 +68,7 @@ add_escola.onclick = function () {
         <div class="form_inputs">
             <label for="nome_escola"><b>Nome</b></label>
             <input type="text" id="nome_escola" placeholder="PUC SP">
-            <label for="endereco_escola"><b>EndereÃ§o</b></label>
+            <label for="endereco_escola"><b>Endereço</b></label>
             <input type="text" id="endereco_escola" placeholder="Rua MarquÃªs de ParanaguÃ¡">
             <label for="telefone_escola"><b>Telefone</b></label>
             <input type="text" id="nome_escola" placeholder="+55(11)1234-5678">
@@ -80,7 +88,7 @@ add_lista.onclick = function () {
         <div class="form_inputs">
             <label for="nome_escola"><b>Escola</b></label>
             <input type="text" id="nome_escola" placeholder="PUC SP">
-            <label for="nome_escola"><b>SÃ©rie</b></label>
+            <label for="nome_escola"><b>Série</b></label>
             <input type="text" id="nome_escola" placeholder="PUC SP">
             <label for="nome_escola"><b>Ano</b></label>
             <input type="text" id="nome_escola" placeholder="PUC SP">
@@ -102,8 +110,8 @@ add_loja.onclick = function () {
         <div class="form_inputs">
             <label for="nome_loja"><b>Nome</b></label>
             <input type="text" id="nome_loja" placeholder="Papelaria PUC SP">
-            <label for="endereco_loja"><b>EndereÃ§o</b></label>
-            <input type="text" id="endereco_loja" placeholder="Rua MarquÃªs de ParanaguÃ¡">
+            <label for="endereco_loja"><b>Endereço</b></label>
+            <input type="text" id="endereco_loja" placeholder="Rua Marquês de ParanaguÃ¡">
             <label for="telefone_loja"><b>Telefone</b></label>
             <input type="text" id="telefone_loja" placeholder="+55(11)1234-5678">
             <div class="form_buttons">
@@ -126,9 +134,11 @@ function generateForm(form) {
 
 function cleanForm(element) {
     element.parentElement.parentElement.parentElement.reset();
-    submit_btn.disabled = true;
-    list_lojas.disabled = true;
-    list_material = true;
+    escola_input.value = '-';
+    lista_input.disabled = true;
+	loja_input.disabled = true;
+	valor_input.disabled = true;
+    submit_btn.disabled = true
 }
 
 function removeContent() {
@@ -233,6 +243,13 @@ function cleanLojas() {
 	option.value = '-';
     option.appendChild(document.createTextNode('loja'));
     list_lojas.appendChild(option);
+}
+
+
+function checkSubmit() {
+	if (escola_input.value != '-' && lista_input.value != '-' && loja_input.value != '-'){
+		submit_btn.disabled = false;
+	}
 }
 
 $(document).ready(function(){
