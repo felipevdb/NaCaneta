@@ -255,6 +255,13 @@ function cleanLojas() {
     list_lojas.appendChild(option);
 }
 
+$('form').submit(function () {
+    if (/^[+]?([0-9]*[.,])?[0-9]+/.test(valor_input.value) === false) {
+	        alert('Valor inválido!');
+	        return false;
+    	}});
+
+
 $(document).ready(function(){
 	listCotacoes();
 	listEscolas();

@@ -124,14 +124,14 @@ public class Controller {
 	@PostMapping("/cotacao")
 	public Model registerCotacao(HttpServletRequest request, Model model) {
 
-		boolean result = addCotacao(request.getParameter("valor"), request.getParameter("lista"),
+		addCotacao(request.getParameter("valor"), request.getParameter("lista"),
 				request.getParameter("loja"));
 
 		return model;
 	}
 
 	static boolean addCotacao(String valor, String lista, String loja) {
-		if (valor.matches("^[0-9][0-9,.]+") && lista != "-" && loja != "-" && lista.isEmpty() == false
+		if (valor.matches("^[+]?([0-9]*[.,])?[0-9]+") && lista != "-" && loja != "-" && lista.isEmpty() == false
 				&& loja.isEmpty() == false) {
 
 			String[] parameters = { valor.replace(',', '.'), lista, loja };
